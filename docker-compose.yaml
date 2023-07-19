@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  #Node.js/Express backend service
+  backend:
+    build: ./backend
+    container_name: backend
+    restart: always
+    environment:
+      - PORT=4000
+      - MONGO_URI=mongodb+srv://ch4mi2:mymongo@cluster0.7w5xkyr.mongodb.net/?retryWrites=true&w=majority
+    ports:
+      - 4000:4000
+
+  #React frontend service
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    restart: always
+    ports:
+      - 3000:3000    
